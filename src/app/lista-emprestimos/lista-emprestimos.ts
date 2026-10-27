@@ -6,8 +6,8 @@ import { EmprestimoService } from '../emprestimo-service';
 @Component({
   selector: 'app-lista-emprestimo',
   imports: [CommonModule],
-  templateUrl: './lista-emprestimo.html',
-  styleUrl: './lista-emprestimo.css'
+  templateUrl: './lista-emprestimos.html',
+  styleUrl: './lista-emprestimos.css'
 })
 export class ListaEmprestimo {
   emprestimos: Emprestimo[] = [];
@@ -17,7 +17,7 @@ export class ListaEmprestimo {
   }
 
   atualizarLista(): void {
-    this.emprestimos = this.service.listar();
+    this.emprestimos = [...this.service.listar()];
   }
 
   remover(id: number): void {
