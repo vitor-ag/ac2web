@@ -1,0 +1,51 @@
+<div class="pagina-cadastro">
+  <div class="card-cadastro">
+
+    <div class="cabecalho">
+      <h2>Cadastrar empréstimo</h2>
+      <p>Preencha os dados para registrar um livro emprestado.</p>
+    </div>
+
+    <form #formEmprestimo="ngForm" (ngSubmit)="cadastrar()">
+
+  <div class="campo">
+    <label for="nomePessoa">Nome da pessoa</label>
+    <input
+      id="nomePessoa"
+      type="text"
+      name="nomePessoa"
+      [(ngModel)]="nomePessoa"
+      required
+    >
+  </div>
+
+  <div class="campo">
+    <label for="tituloLivro">Título do livro</label>
+    <input
+      id="tituloLivro"
+      type="text"
+      name="tituloLivro"
+      [(ngModel)]="tituloLivro"
+      required
+    >
+  </div>
+
+  <div class="campo">
+    <label for="dataPrevistaDevolucao">Data prevista de devolução</label>
+    <input
+      id="dataPrevistaDevolucao"
+      type="date"
+      name="dataPrevistaDevolucao"
+      [(ngModel)]="dataPrevistaDevolucao"
+      required
+    >
+  </div>
+
+  <button type="submit" [disabled]="formEmprestimo.invalid">
+    Cadastrar empréstimo
+  </button>
+
+</form>
+
+  </div>
+</div>

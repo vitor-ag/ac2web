@@ -1,0 +1,120 @@
+.pagina-lista {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.cabecalho-lista {
+  margin-bottom: 20px;
+}
+
+.resumo {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card-resumo {
+  flex: 1;
+  padding: 15px;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.card-resumo span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-resumo strong {
+  font-size: 24px;
+}
+
+.card-resumo.total {
+  border-left: 5px solid #2563eb;
+}
+
+.card-resumo.aberto {
+  border-left: 5px solid #eab308;
+}
+
+.card-resumo.devolvido {
+  border-left: 5px solid #16a34a;
+}
+
+.card-emprestimo {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.livro-info h3 {
+  margin-top: 0;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status-aberto {
+  background: #fff0a6;
+  color: #765600;
+}
+
+.status-devolvido {
+  background: #c8f7d2;
+  color: #166534;
+}
+
+.rodape-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao-devolver {
+  background: #2563eb;
+  color: white;
+}
+
+.botao-devolver:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.botao-remover {
+  background: #dc2626;
+  color: white;
+}
+
+.mensagem-vazia {
+  padding: 20px;
+  text-align: center;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .resumo {
+    flex-direction: column;
+  }
+}

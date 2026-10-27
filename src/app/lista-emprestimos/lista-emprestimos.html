@@ -1,0 +1,92 @@
+
+<div class="pagina-lista">
+
+  <div class="cabecalho-lista">
+    <h2>Empréstimos de livros</h2>
+    <p>Acompanhe os livros emprestados e suas devoluções.</p>
+  </div>
+
+  <div class="resumo">
+
+    <div class="card-resumo total">
+      <span>Total de empréstimos</span>
+      <strong>{{ total }}</strong>
+    </div>
+
+    <div class="card-resumo aberto">
+      <span>Em aberto</span>
+      <strong>{{ emAberto }}</strong>
+    </div>
+
+    <div class="card-resumo devolvido">
+      <span>Devolvidos</span>
+      <strong>{{ devolvidos }}</strong>
+    </div>
+
+  </div>
+
+  @if (emprestimos.length === 0) {
+    <div class="mensagem-vazia">
+      <h3>Nenhum empréstimo cadastrado</h3>
+      <p>Quando você cadastrar um empréstimo, ele aparecerá aqui.</p>
+    </div>
+  } @else {
+    <div class="lista">
+
+      @for (e of emprestimos; track e.id) {
+        <div class="card-emprestimo">
+
+          <div class="livro-info">
+            <h3>{{ e.tituloLivro }}</h3>
+
+            <p>
+              <strong>Pessoa:</strong>
+              {{ e.nomePessoa }}
+            </p>
+
+            <p>
+              <strong>Data prevista de devolução:</strong>
+              {{ e.dataPrevistaDevolucao | date:'dd/MM/yyyy' }}
+            </p>
+          </div>
+
+          <div class="rodape-card">
+
+            <span
+              class="status"
+              [class.status-devolvido]="e.devolvido"
+              [class.status-aberto]="!e.devolvido"
+            >
+              {{ e.devolvido ? 'Devolvido' : 'Em aberto' }}
+            </span>
+
+            <div class="acoes">
+
+              <button
+                type="button"
+                class="botao-devolver"
+                (click)="registrarDevolucao(e.id)"
+                [disabled]="e.devolvido"
+              >
+                {{ e.devolvido ? 'Livro devolvido' : 'Registrar devolução' }}
+              </button>
+
+              <button
+                type="button"
+                class="botao-remover"
+                (click)="remover(e.id)"
+              >
+                Remover
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+      }
+
+    </div>
+  }
+
+</div>
